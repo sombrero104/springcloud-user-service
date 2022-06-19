@@ -74,8 +74,9 @@ Eureka Server의 Status에서 위에서 실행한 App들이 등록된 것을 확
 위와 같이 일일이 포트를 설정하여 App을 실행하지 않고 <br/>
 App이 실행될 때마다 랜덤 포트를 사용하도록 할 수 있다. <br/>
 아래와 같이 application.yml에서 server.port를 0번으로 설정하면 <br/>
-실행할 때마다 랜덤으로 포트로 실행하게 된다. <br/>
+실행할 때마다 랜덤 포트로 실행하게 된다. <br/>
 
+[application.yml]
 ~~~
 server:
   port: 0
