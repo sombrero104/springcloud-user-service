@@ -83,6 +83,25 @@ server:
 ... 
 ~~~ 
 
+그런데 App을 여러 개 띄워도 Eureka Server에서 확인해 보면 1개의 서비스만 나오게 된다. <br/>
+
+<img src="./images/random_port_1.png" width="100%" /><br/>
+
+application.yml에서 설정한 포트 번호(0)와 애플리케이션 이름이 같기 때문인데 <br/>
+아래와 같이 instance-id를 설정해 주면 해결된다. <br/>
+~~~
+server:
+  port: 0
+...
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+... 
+~~~
+
+<img src="./images/random_port_2.png" width="100%" /><br/>
+
+
 <br/><br/>
 
 
