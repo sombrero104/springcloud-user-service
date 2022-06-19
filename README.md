@@ -79,7 +79,8 @@ App이 실행될 때마다 랜덤 포트를 사용하도록 할 수 있다. <br/
 #### [application.yml]
 ~~~
 server:
-  port: 0
+  port: 0 
+... 
 ~~~ 
 
 <br/><br/>
