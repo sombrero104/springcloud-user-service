@@ -102,9 +102,4 @@ eureka:
 
 <img src="./images/random_port_2.png" width="90%" /><br/>
 
-
-<br/><br/>
-
-
 <br/><br/><br/><br/>
-
