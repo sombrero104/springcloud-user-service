@@ -67,8 +67,8 @@ java -jar -Dserver.port=9004 ./target/springcloud-user-service-1.0-SNAPSHOT.jar
 ### 4개의 App 실행 후 
 Eureka Server의 Status에서 위에서 실행한 App들이 등록된 것을 확인할 수 있다. <br/>
 
-<img src="./images/eureka_server_status_4apps.png" width="95%" /><br/>
-
+<img src="./images/eureka_server_status_4apps.png" width="100%" /><br/>
+<br/><br/>
 
 
 
