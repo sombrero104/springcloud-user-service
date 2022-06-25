@@ -4,10 +4,15 @@ import me.vo.Greeting;
 import me.vo.RequestUser;
 import me.dto.UserDto;
 import me.service.UserService;
+import me.vo.ResponseUser;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.ws.rs.core.Response;
 
 @RestController
 @RequestMapping("/")
@@ -38,13 +43,15 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public String createUser(@RequestBody RequestUser user) {
+    public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
         UserDto userDto = mapper.map(user, UserDto.class);
         userService.createUser(userDto);
-        return "Create user method is called.";
+
+        ResponseUser responseUser = mapper.map(userDto, ResponseUser.class);
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
     }
 
 }
