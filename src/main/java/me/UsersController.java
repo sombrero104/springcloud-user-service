@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class UsersController {
 
-    private Environment environment;
+    /*private Environment environment;
 
     @Autowired
     public UsersController(Environment environment) {
         this.environment = environment;
-    }
+    }*/
+
+    @Autowired
+    private Greeting greeting;
 
     @GetMapping("/health_check")
     public String status() {
@@ -24,7 +27,8 @@ public class UsersController {
 
     @GetMapping("/welcome")
     public String welcome() {
-        return environment.getProperty("greeting.message");
+        // return environment.getProperty("greeting.message");
+        return greeting.getMessage();
     }
 
 }
