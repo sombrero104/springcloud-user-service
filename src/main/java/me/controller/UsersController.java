@@ -1,10 +1,10 @@
-package me;
+package me.controller;
 
+import me.Greeting;
+import me.RequestUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
@@ -29,6 +29,11 @@ public class UsersController {
     public String welcome() {
         // return environment.getProperty("greeting.message");
         return greeting.getMessage();
+    }
+
+    @PostMapping("/users")
+    public String createUser(@RequestBody RequestUser user) {
+        return "Create user method is called.";
     }
 
 }
