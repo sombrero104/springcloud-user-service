@@ -1,14 +1,17 @@
 package me.controller;
 
-import me.Greeting;
-import me.RequestUser;
+import me.vo.Greeting;
+import me.vo.RequestUser;
+import me.dto.UserDto;
+import me.service.UserService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
-public class UsersController {
+public class UserController {
 
     /*private Environment environment;
 
@@ -19,6 +22,9 @@ public class UsersController {
 
     @Autowired
     private Greeting greeting;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/health_check")
     public String status() {
@@ -33,6 +39,11 @@ public class UsersController {
 
     @PostMapping("/users")
     public String createUser(@RequestBody RequestUser user) {
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+        UserDto userDto = mapper.map(user, UserDto.class);
+        userService.createUser(userDto);
         return "Create user method is called.";
     }
 

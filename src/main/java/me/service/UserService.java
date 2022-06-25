@@ -1,4 +1,6 @@
-package me;
+package me.service;
+
+import me.dto.UserDto;
 
 public interface UserService {
 
