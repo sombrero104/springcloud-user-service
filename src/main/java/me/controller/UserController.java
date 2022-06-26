@@ -1,9 +1,9 @@
 package me.controller;
 
-import me.vo.Greeting;
-import me.vo.RequestUser;
 import me.dto.UserDto;
 import me.service.UserService;
+import me.vo.Greeting;
+import me.vo.RequestUser;
 import me.vo.ResponseUser;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -12,10 +12,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.core.Response;
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/user-service")
 public class UserController {
 
     /*private Environment environment;
@@ -25,15 +25,18 @@ public class UserController {
         this.environment = environment;
     }*/
 
-    @Autowired
     private Greeting greeting;
-
-    @Autowired
     private UserService userService;
 
+    @Autowired
+    public UserController(Greeting greeting, UserService userService) {
+        this.greeting = greeting;
+        this.userService = userService;
+    }
+
     @GetMapping("/health_check")
-    public String status() {
-        return "It's working in user service.";
+    public String status(HttpServletRequest request) {
+        return String.format("It's working in user service on port %s", request.getServerPort());
     }
 
     @GetMapping("/welcome")
