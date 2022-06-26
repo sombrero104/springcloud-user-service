@@ -104,6 +104,6 @@ eureka:
 <br/><br/>
 
 ## 샘플 프로젝트 구성 
-<img src="./images/ecommerce_application.png" width="70%" /><br/>
+<img src="./images/ecommerce_application.png" width="60%" /><br/>
 
 <br/><br/><br/><br/>
