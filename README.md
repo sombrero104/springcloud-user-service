@@ -101,5 +101,9 @@ eureka:
 <br/>
 
 <img src="./images/random_port_2.png" width="90%" /><br/>
+<br/><br/>
+
+## 샘플 프로젝트 구성 
+<img src="./images/ecommerce_application.png" width="90%" /><br/>
 
 <br/><br/><br/><br/>
