@@ -108,7 +108,7 @@ eureka:
 <br/>
 
 ### user-service 요청 예시 
-- 요청: 사용자 등록 
+#### 사용자 등록 
 - Method: POST
 - URL: http://127.0.0.1:8000/user-service/users
 - Body: 
@@ -129,7 +129,7 @@ eureka:
 ~~~
 <br/>
 
-- 요청: 로그인 
+#### 로그인 
 - Method: POST
 - URL: http://127.0.0.1:8000/user-service/login
 - Body: 
@@ -139,8 +139,8 @@ eureka:
     "password": "smith111"
 }
 ~~~
-- Response Headers:
-<img src="./images/response_header_jwt_token.png" width="50%" /><br/>
+- Response Headers: <br/>
+<img src="./images/response_header_jwt_token.png" width="70%" /><br/>
 
 
 <br/><br/><br/><br/>
