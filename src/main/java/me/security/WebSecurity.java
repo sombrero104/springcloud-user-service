@@ -44,7 +44,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 //
 //        http.authorizeRequests().anyRequest().denyAll();
 
-        http.headers().frameOptions().disable();
+        http.headers().frameOptions().disable(); // h2-console
     }
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
