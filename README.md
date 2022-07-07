@@ -127,5 +127,20 @@ eureka:
     "userId": "2964d7a2-d565-405b-88b6-8bea40a2ee82"
 }
 ~~~
+<br/>
+
+- 요청: 로그인 
+- Method: POST
+- URL: http://127.0.0.1:8000/user-service/login
+- Body: 
+~~~
+{
+    "email": "smith2@email.com",
+    "password": "smith111"
+}
+~~~
+- Response Headers:
+<img src="./images/response_header_jwt_token.png" width="50%" /><br/>
+
 
 <br/><br/><br/><br/>
