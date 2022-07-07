@@ -127,7 +127,6 @@ eureka:
     "userId": "2964d7a2-d565-405b-88b6-8bea40a2ee82"
 }
 ~~~
-<br/>
 
 #### 로그인 
 - Method: POST
