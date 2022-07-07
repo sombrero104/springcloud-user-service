@@ -105,5 +105,27 @@ eureka:
 
 ## 샘플 프로젝트 구성 
 <img src="./images/ecommerce_application.png" width="60%" /><br/>
+<br/>
+
+### user-service 요청 예시 
+- 요청: 사용자 등록 
+- Method: POST
+- URL: http://127.0.0.1:8000/user-service/users
+- Body: 
+~~~
+{
+    "email": "smith2@email.com",
+    "name": "smith2",
+    "pwd": "smith111"
+}
+~~~
+- Response:
+~~~
+{
+    "email": "smith2@email.com",
+    "name": "smith2",
+    "userId": "2964d7a2-d565-405b-88b6-8bea40a2ee82"
+}
+~~~
 
 <br/><br/><br/><br/>
