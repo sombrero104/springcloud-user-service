@@ -4,8 +4,8 @@ import me.dto.UserDto;
 import me.service.UserService;
 import me.vo.RequestLogin;
 import com.fasterxml.jackson.databind.ObjectMapper;
-// import io.jsonwebtoken.Jwts;
-// import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -66,14 +66,14 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         log.debug("# userName: " + userName);
 
         UserDto userDetails = userService.getUserDetailsByEmail(userName);
-        /*String token = Jwts.builder()
+        String token = Jwts.builder()
                 .setSubject(userDetails.getUserId())
                 .setExpiration(new Date(System.currentTimeMillis() +
                         Long.parseLong(env.getProperty("token.expiration_time"))))
                 .signWith(SignatureAlgorithm.HS512, env.getProperty("token.secret"))
                 .compact();
 
-        response.addHeader("token", token);*/
+        response.addHeader("token", token);
         response.addHeader("userId", userDetails.getUserId());
     }
 }
