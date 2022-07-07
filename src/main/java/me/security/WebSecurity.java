@@ -56,6 +56,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     // select pwd from users where email=?
     // db_pwd(encrypted) == input_pwd(encrypted)
+    // 이미 암호화된 DB 패스워드와 요청 파라미터로 받은 패스워드를 암호화하여 비교
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService)
