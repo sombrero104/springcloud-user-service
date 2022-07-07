@@ -101,14 +101,14 @@ eureka:
 <br/>
 
 <img src="./images/random_port_2.png" width="90%" /><br/>
-<br/><br/>
+<br/><br/><br/>
 
 ## 샘플 프로젝트 구성 
 <img src="./images/ecommerce_application.png" width="60%" /><br/>
 <br/>
 
-### user-service 요청 예시 
-#### 사용자 등록 
+## user-service 요청 예시 
+### 사용자 등록 
 - Method: POST
 - URL: http://127.0.0.1:8000/user-service/users
 - Body: 
@@ -128,7 +128,7 @@ eureka:
 }
 ~~~
 
-#### 로그인 
+### 로그인 
 - Method: POST
 - URL: http://127.0.0.1:8000/user-service/login
 - Body: 
