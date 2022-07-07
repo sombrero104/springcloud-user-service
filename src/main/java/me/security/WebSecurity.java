@@ -33,12 +33,12 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/actuator/**").permitAll();
         http.authorizeRequests().antMatchers("/health_check/**").permitAll();
         http.authorizeRequests().antMatchers("/**")
-                .hasIpAddress(env.getProperty("127.0.0.1")) // <- IP 변경
+                .hasIpAddress(env.getProperty("gateway.ip")) // <- IP 변경
                 .and()
                 .addFilter(getAuthenticationFilter());
 
 //        http.authorizeRequests().antMatchers("/users")
-//                .hasIpAddress(env.getProperty("127.0.0.1")) // <- IP 변경
+//                .hasIpAddress(env.getProperty("gateway.ip")) // <- IP 변경
 //                .and()
 //                .addFilter(getAuthenticationFilter());
 //
