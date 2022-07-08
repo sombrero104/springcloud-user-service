@@ -167,9 +167,9 @@ spring:
 ~~~
 
 #### [실행 결과 Bootstrap 로그]
-<img src="./images/config_service_bootstrap_log.png" width="55%" /><br/>
+<img src="./images/config_service_bootstrap_log.png" width="60%" /><br/>
 
 #### [실행 결과 Config 정보 확인]
-<img src="./images/config_service_test_result.png" width="55%" /><br/>
+<img src="./images/config_service_test_result.png" width="60%" /><br/>
 
 <br/><br/><br/><br/>
