@@ -166,4 +166,10 @@ spring:
       name: ecommerce
 ~~~
 
+#### [실행 결과 Bootstrap 로그]
+<img src="./images/config_service_bootstrap_log.png" width="50%" /><br/>
+
+#### [실행 결과 Config 정보 확인]
+<img src="./images/config_service_test_result.png" width="50%" /><br/>
+
 <br/><br/><br/><br/>
