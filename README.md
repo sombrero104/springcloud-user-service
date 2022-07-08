@@ -140,6 +140,30 @@ eureka:
 ~~~
 - Response Headers: <br/>
 <img src="./images/response_header_jwt_token.png" width="70%" /><br/>
+<br/><br/>
 
+## config-service 연동  
+
+#### [pom.xml]
+~~~
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-config</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bootstrap</artifactId>
+</dependency>
+~~~
+
+#### [application.yml]
+~~~
+spring:
+  ...
+  cloud:
+    config:
+      uri: http://127.0.0.1:8888
+      name: ecommerce
+~~~
 
 <br/><br/><br/><br/>

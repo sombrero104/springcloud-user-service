@@ -9,6 +9,7 @@ import me.vo.ResponseUser;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,25 +22,26 @@ import java.util.List;
 @RequestMapping("/")
 public class UserController {
 
-    /*private Environment environment;
-
-    @Autowired
-    public UsersController(Environment environment) {
-        this.environment = environment;
-    }*/
-
     private Greeting greeting;
     private UserService userService;
+    private Environment env;
 
     @Autowired
-    public UserController(Greeting greeting, UserService userService) {
+    public UserController(Greeting greeting, UserService userService, Environment env) {
         this.greeting = greeting;
         this.userService = userService;
+        this.env = env;
     }
 
     @GetMapping("/health_check")
-    public String status(HttpServletRequest request) {
-        return String.format("It's working in user service on port %s", request.getServerPort());
+    public String status() {
+        return String.format("It's Working in User Service"
+                + ", port(local.server.port)=" + env.getProperty("local.server.port")
+                + ", port(server.port)=" + env.getProperty("server.port")
+                + ", gateway ip=" + env.getProperty("gateway.ip")
+                + ", message=" + env.getProperty("greeting.message")
+                + ", token secret=" + env.getProperty("token.secret")
+                + ", token expiration time=" + env.getProperty("token.expiration_time"));
     }
 
     @GetMapping("/welcome")
