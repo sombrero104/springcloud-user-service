@@ -156,10 +156,9 @@ eureka:
 </dependency>
 ~~~
 
-#### [application.yml]
+#### [bootstrap.yml]
 ~~~
 spring:
-  ...
   cloud:
     config:
       uri: http://127.0.0.1:8888
