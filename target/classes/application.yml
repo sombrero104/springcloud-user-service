@@ -40,3 +40,8 @@ logging:
 #  expiration_time: 864000000 # (밀리세컨드) => 10 days
 #  secret: user_token
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, busrefresh, info, metrics, prometheus
