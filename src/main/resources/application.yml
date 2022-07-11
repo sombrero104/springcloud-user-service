@@ -20,6 +20,11 @@ spring:
 #      name: ecommerce
 #  config:
 #    import: optional:configserver:http://127.0.0.1:8888
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   instance:
@@ -45,4 +50,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans, busrefresh, info, metrics, prometheus
+        include: refresh, health, beans, httptrace, busrefresh, info, metrics, prometheus
+
