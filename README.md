@@ -170,5 +170,34 @@ spring:
 
 #### [실행 결과 Config 정보 확인]
 <img src="./images/config_service_test_result.png" width="60%" /><br/>
+<br/><br/>
+
+## 마이크로서비스 간 통신 방식 
+- Synchronous HTTP communication 
+- Asynchronous communication over AMQP
+
+### RestTemplate
+#### [App.java]
+~~~
+@Bean
+public RestTemplate getRestTemplate() {
+    return new RestTemplate();
+}
+~~~
+#### [UserServiceImpl.java]
+~~~
+String orderUrl = String.format(env.getProperty("order_service.url"), userId);
+ResponseEntity<List<ResponseOrder>> orderListResponse =
+        restTemplate.exchange(orderUrl, HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<ResponseOrder>>() {
+                });
+List<ResponseOrder> ordersList = orderListResponse.getBody();
+~~~
+#### [user-service.yml]
+~~~
+order_service:
+  url: http://127.0.0.1:8000/order-service/%s/orders
+       # => order-service의 @GetMapping("/{userId}/orders")로 요청 
+~~~
 
 <br/><br/><br/><br/>
