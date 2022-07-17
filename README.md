@@ -201,5 +201,21 @@ order_service:
 ~~~
 #### [user-service - /users/{userId} 요청 결과] 
 <img src="./images/get_users_orders.png" width="60%" /><br/>
+<br/>
+
+### 
+유레카에 등록된 마이크로서비스 이름으로 변경. 
+~~~
+http://127.0.0.1:8000/order-service/%s/orders
+    => http://order-service/order-service/%s/orders
+~~~
+~~~
+@Bean
+@LoadBalanced   // 마이크로서비스 이름으로 호출 가능하도록 @LoadBalanced 추가. 
+public RestTemplate getRestTemplate() {
+    return new RestTemplate();
+}
+~~~
+
 
 <br/><br/><br/><br/>
