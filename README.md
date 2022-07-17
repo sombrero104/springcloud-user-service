@@ -199,5 +199,7 @@ order_service:
   url: http://127.0.0.1:8000/order-service/%s/orders
        # => order-service의 @GetMapping("/{userId}/orders")로 요청 
 ~~~
+#### [user-service - /users/{userId} 요청 결과] 
+<img src="./images/get_users_orders.png" width="60%" /><br/>
 
 <br/><br/><br/><br/>
