@@ -240,4 +240,6 @@ public RestTemplate getRestTemplate() {
 public class App {
 ~~~
 
+#### [@FeignClient 인터페이스 생성]
+
 <br/><br/><br/><br/>
