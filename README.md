@@ -203,8 +203,7 @@ order_service:
 <img src="./images/get_users_orders.png" width="60%" /><br/>
 <br/>
 
-### 
-유레카에 등록된 마이크로서비스 이름으로 변경. 
+#### 유레카에 등록된 마이크로서비스 이름으로 변경. 
 ~~~
 http://127.0.0.1:8000/order-service/%s/orders
     => http://order-service/order-service/%s/orders
@@ -216,6 +215,29 @@ public RestTemplate getRestTemplate() {
     return new RestTemplate();
 }
 ~~~
+<br/>
 
+### FeignClient
+- REST Call을 추상화 한 Spring Cloud Netflix 라이브러리 
+- RestTemplate 보다 직관적이고 간단하게 사용할 수 있음. 
+- 호출하려는 HTTP Endpoint 에 대한 Interface 를 생성.
+- @FeignClient 선언
+- Load balanced 지원 
+
+#### [pom.xml] 
+~~~
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+~~~ 
+
+#### [App.java] 
+~~~
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients // FeignClient 사용할 수 있도록 추가. 
+public class App {
+~~~
 
 <br/><br/><br/><br/>
