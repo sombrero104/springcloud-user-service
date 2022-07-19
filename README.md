@@ -241,5 +241,14 @@ public class App {
 ~~~
 
 #### [@FeignClient 인터페이스 생성]
+~~~
+@FeignClient(name = "order-service")
+public interface OrderServiceClient {
+
+    @GetMapping("/order-service/{userId}/orders")
+    List<ResponseOrder> getOrders(@PathVariable String userId);
+
+}
+~~~
 
 <br/><br/><br/><br/>
