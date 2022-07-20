@@ -140,7 +140,7 @@ eureka:
 ~~~
 - Response Headers: <br/>
 <img src="./images/response_header_jwt_token.png" width="70%" /><br/>
-<br/><br/>
+<br/>
 
 ## config-service 연동  
 
