@@ -231,7 +231,6 @@ public RestTemplate getRestTemplate() {
     <artifactId>spring-cloud-starter-openfeign</artifactId>
 </dependency>
 ~~~ 
-
 #### [App.java] 
 ~~~
 @SpringBootApplication
@@ -239,7 +238,6 @@ public RestTemplate getRestTemplate() {
 @EnableFeignClients // FeignClient 사용할 수 있도록 추가. 
 public class App {
 ~~~
-
 #### [@FeignClient 인터페이스 생성]
 ~~~
 @FeignClient(name = "order-service")
@@ -248,6 +246,15 @@ public interface OrderServiceClient {
     @GetMapping("/order-service/{userId}/orders")
     List<ResponseOrder> getOrders(@PathVariable String userId);
 
+}
+~~~
+#### [UserServiceImpl.java]
+~~~
+List<ResponseOrder> ordersList = null;
+try {
+    ordersList = orderServiceClient.getOrders(userId);
+} catch (FeignException ex) {
+    log.error(ex.getMessage());
 }
 ~~~
 
