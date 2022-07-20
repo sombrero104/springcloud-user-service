@@ -258,6 +258,7 @@ try {
     log.error(ex.getMessage());
 }
 ~~~
+<br/>
 
 ### FeignClient 에서 로그 사용
 아래와 같이 설정만 해줘도 FeignClient 인터페이스 사용 시 로그가 남는다. <br/>
@@ -275,7 +276,9 @@ public Logger.Level feignLoggerLevel() {
 }
 ~~~
 
-<img src="./images/feignclient_log_01.png" width="62%" /><br/>
+#### [요청 결과]
+
+<img src="./images/feignclient_log_01.png" width="59%" /><br/>
 
 <img src="./images/feignclient_log_02.png" width="80%" /><br/>
 
