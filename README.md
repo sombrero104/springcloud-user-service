@@ -281,5 +281,56 @@ public Logger.Level feignLoggerLevel() {
 <img src="./images/feignclient_log_01.png" width="59%" /><br/>
 
 <img src="./images/feignclient_log_02.png" width="80%" /><br/>
+<br/>
+
+### ErrorDecoder 를 이용한 예외 처리 
+FeignClient 사용 시 발생한 예외를 분기별로 처리 가능하게 함. <br/>
+ErrorDecoder 를 상속받는 클래스를 만들어서 빈으로 등록한다. <br/>
+이렇게 등록하게 되면 FeignClient 인터페이스 호출 시 에러 처리를 해주지 않아도 된다. <br/>
+
+#### [FeignErrorDecoder.java]
+~~~
+@Component
+public class FeignErrorDecoder implements ErrorDecoder {
+    /*Environment env;
+
+    @Autowired
+    public FeignErrorDecoder(Environment env) {
+        this.env = env;
+    }*/
+
+    @Override
+    public Exception decode(String methodKey, Response response) {
+        switch(response.status()) {
+            case 400:
+                break;
+            case 404:
+                if (methodKey.contains("getOrders")) {
+                    return new ResponseStatusException(HttpStatus.valueOf(response.status()),
+                            "User's orders is empty.");
+                            // env.getProperty("order_service.exception.orders_is_empty"));
+                            
+                }
+                break;
+            default:
+                return new Exception(response.reason());
+        }
+
+        return null;
+    }
+}
+~~~
+#### [App.java]
+~~~
+@Bean
+public FeignErrorDecoder getFeignErrorDecoder() {
+    return new FeignErrorDecoder();
+}
+~~~
+#### [UserServiceImpl.java]
+~~~
+// FeignClient 사용 시 예외처리를 해주지 않아도 됨. 
+List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
+~~~
 
 <br/><br/><br/><br/>

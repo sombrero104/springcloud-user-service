@@ -106,15 +106,16 @@ public class UserServiceImpl implements UserService {
 
         /** 2. FeignClient 를 사용하는 방법 **/
         // Feign exception handling
-        List<ResponseOrder> ordersList = null;
+        /*List<ResponseOrder> ordersList = null;
         try {
             ordersList = orderServiceClient.getOrders(userId);
         } catch (FeignException ex) {
             log.error(ex.getMessage());
-        }
+        }*/
 
-        /* ErrorDecoder */
-        // List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
+        /** ErrorDecoder 로 예외 처리하는 방법 **/
+        List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
+
         /* log.info("Before call orders microservice");
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
         List<ResponseOrder> ordersList = circuitBreaker.run(() -> orderServiceClient.getOrders(userId),
