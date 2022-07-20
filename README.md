@@ -139,7 +139,7 @@ eureka:
 }
 ~~~
 - Response Headers: <br/>
-<img src="./images/response_header_jwt_token.png" width="70%" /><br/>
+<img src="./images/response_header_jwt_token.png" width="71%" /><br/>
 <br/>
 
 ## config-service 연동  
@@ -275,8 +275,8 @@ public Logger.Level feignLoggerLevel() {
 ~~~
 위와 같이 설정만 해줘도 FeignClient 인터페이스 사용 시 아래와 같이 로그가 남는다. <br/>
 
-<img src="./images/feignclient_log_01.png" width="60%" /><br/>
+<img src="./images/feignclient_log_01.png" width="61%" /><br/>
 
-<img src="./images/feignclient_log_02.png" width="60%" /><br/>
+<img src="./images/feignclient_log_02.png" width="80%" /><br/>
 
 <br/><br/><br/><br/>
