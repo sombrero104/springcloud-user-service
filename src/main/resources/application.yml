@@ -40,7 +40,8 @@ greeting:
 
 logging:
   level:
-    me: debug
+    # me: debug
+    me.client: debug
 
 # token:
 #  expiration_time: 864000000 # (밀리세컨드) => 10 days

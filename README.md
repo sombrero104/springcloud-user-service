@@ -259,4 +259,24 @@ try {
 }
 ~~~
 
+### FeignClient 에서 로그 사용
+#### [application.yml]
+~~~
+logging:
+  level:
+    me.client: debug
+~~~ 
+#### [App.java]
+~~~
+@Bean
+public Logger.Level feignLoggerLevel() {
+    return Logger.Level.FULL;
+}
+~~~
+위와 같이 설정만 해줘도 FeignClient 인터페이스 사용 시 아래와 같이 로그가 남는다. <br/>
+
+<img src="./images/feignclient_log_01.png" width="60%" /><br/>
+
+<img src="./images/feignclient_log_02.png" width="60%" /><br/>
+
 <br/><br/><br/><br/>
