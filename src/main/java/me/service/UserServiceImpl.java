@@ -1,6 +1,8 @@
 package me.service;
 
 // import me.client.OrderServiceClient;
+import feign.FeignException;
+import me.client.OrderServiceClient;
 import me.dto.UserDto;
 import me.jpa.UserEntity;
 import me.jpa.UserRepository;
@@ -38,9 +40,24 @@ public class UserServiceImpl implements UserService {
     Environment env;
     RestTemplate restTemplate;
 
-    // OrderServiceClient orderServiceClient;
+    OrderServiceClient orderServiceClient;
 
     // CircuitBreakerFactory circuitBreakerFactory;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository,
+                           BCryptPasswordEncoder passwordEncoder,
+                           Environment env,
+                           RestTemplate restTemplate,
+                           OrderServiceClient orderServiceClient) {
+        // CircuitBreakerFactory circuitBreakerFactory) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.env = env;
+        this.restTemplate = restTemplate;
+        this.orderServiceClient = orderServiceClient;
+        /*this.circuitBreakerFactory = circuitBreakerFactory;*/
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -52,21 +69,6 @@ public class UserServiceImpl implements UserService {
         return new User(userEntity.getEmail(), userEntity.getEncryptedPwd(),
                 true, true, true, true,
                 new ArrayList<>());
-    }
-
-    @Autowired
-    public UserServiceImpl(UserRepository userRepository,
-                           BCryptPasswordEncoder passwordEncoder,
-                           Environment env,
-                           RestTemplate restTemplate) {
-                           // OrderServiceClient orderServiceClient,
-                           // CircuitBreakerFactory circuitBreakerFactory) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.env = env;
-        this.restTemplate = restTemplate;
-        /*this.orderServiceClient = orderServiceClient;
-        this.circuitBreakerFactory = circuitBreakerFactory;*/
     }
 
     @Override
@@ -88,40 +90,38 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUserByUserId(String userId) {
         UserEntity userEntity = userRepository.findByUserId(userId);
-
         if (userEntity == null)
             throw new UsernameNotFoundException("User not found");
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
 
-//        List<ResponseOrder> orders = new ArrayList<>();
-        /* Using as rest template */
-        String orderUrl = String.format(env.getProperty("order_service.url"), userId);
+        /** 마이크로서비스 간의 통신 방법 **/
+        /** 1. RestTemplate 을 사용하는 방법 **/
+        /* String orderUrl = String.format(env.getProperty("order_service.url"), userId);
         ResponseEntity<List<ResponseOrder>> orderListResponse =
                 restTemplate.exchange(orderUrl, HttpMethod.GET, null,
                         new ParameterizedTypeReference<List<ResponseOrder>>() {
                         });
-        List<ResponseOrder> ordersList = orderListResponse.getBody();
+        List<ResponseOrder> ordersList = orderListResponse.getBody(); */
 
-        /* Using a feign client */
-        /* Feign exception handling */
-//        List<ResponseOrder> ordersList = null;
-//        try {
-//            ordersList = orderServiceClient.getOrders(userId);
-//        } catch (FeignException ex) {
-//            log.error(ex.getMessage());
-//        }
+        /** 2. FeignClient 를 사용하는 방법 **/
+        // Feign exception handling
+        List<ResponseOrder> ordersList = null;
+        try {
+            ordersList = orderServiceClient.getOrders(userId);
+        } catch (FeignException ex) {
+            log.error(ex.getMessage());
+        }
 
         /* ErrorDecoder */
         // List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
-//        log.info("Before call orders microservice");
-//        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
-//        List<ResponseOrder> ordersList = circuitBreaker.run(() -> orderServiceClient.getOrders(userId),
-//                throwable -> new ArrayList<>());
-//        log.info("After called orders microservice");
+        /* log.info("Before call orders microservice");
+        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
+        List<ResponseOrder> ordersList = circuitBreaker.run(() -> orderServiceClient.getOrders(userId),
+                throwable -> new ArrayList<>());
+        log.info("After called orders microservice"); */
 
         userDto.setOrders(ordersList);
-
         return userDto;
     }
 
