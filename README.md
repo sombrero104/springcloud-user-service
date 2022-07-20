@@ -101,9 +101,9 @@ eureka:
 <br/>
 
 <img src="./images/random_port_2.png" width="90%" /><br/>
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
-## 샘플 프로젝트 구성 
+# 샘플 프로젝트 구성 
 <img src="./images/ecommerce_application.png" width="60%" /><br/>
 <br/>
 
@@ -170,9 +170,9 @@ spring:
 
 #### [실행 결과 Config 정보 확인]
 <img src="./images/config_service_test_result.png" width="60%" /><br/>
-<br/><br/>
+<br/><br/><br/><br/>
 
-## 마이크로서비스 간 통신 방식 
+# 마이크로서비스 간 통신 방식 
 - Synchronous HTTP communication 
 - Asynchronous communication over AMQP
 <br/>
