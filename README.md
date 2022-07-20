@@ -175,8 +175,9 @@ spring:
 ## 마이크로서비스 간 통신 방식 
 - Synchronous HTTP communication 
 - Asynchronous communication over AMQP
+<br/>
 
-### RestTemplate
+## RestTemplate 을 사용하는 방식 
 #### [App.java]
 ~~~
 @Bean
@@ -217,7 +218,7 @@ public RestTemplate getRestTemplate() {
 ~~~
 <br/>
 
-### FeignClient
+### FeignClient 를 사용하는 방식 
 - REST Call을 추상화 한 Spring Cloud Netflix 라이브러리 
 - RestTemplate 보다 직관적이고 간단하게 사용할 수 있음. 
 - 호출하려는 HTTP Endpoint 에 대한 Interface 를 생성.
