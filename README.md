@@ -320,13 +320,6 @@ public class FeignErrorDecoder implements ErrorDecoder {
     }
 }
 ~~~
-#### [App.java]
-~~~
-@Bean
-public FeignErrorDecoder getFeignErrorDecoder() {
-    return new FeignErrorDecoder();
-}
-~~~
 #### [UserServiceImpl.java]
 ~~~
 // FeignClient 사용 시 예외처리를 해주지 않아도 됨. 
