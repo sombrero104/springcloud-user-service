@@ -285,7 +285,7 @@ public Logger.Level feignLoggerLevel() {
 
 ### ErrorDecoder 를 이용한 예외 처리 
 FeignClient 사용 시 발생한 예외를 분기별로 처리 가능하게 함. <br/>
-ErrorDecoder 를 상속받는 클래스를 만들어서 빈으로 등록한다. <br/>
+ErrorDecoder 를 상속받는 클래스를 만들어서 빈으로 등록하거나 @Component 로 설정한다. <br/>
 이렇게 등록하게 되면 FeignClient 인터페이스 호출 시 에러 처리를 해주지 않아도 된다. <br/>
 
 #### [FeignErrorDecoder.java]

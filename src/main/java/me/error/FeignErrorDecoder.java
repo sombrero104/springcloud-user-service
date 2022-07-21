@@ -10,12 +10,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Component
 public class FeignErrorDecoder implements ErrorDecoder {
-    /*Environment env;
+    Environment env;
 
     @Autowired
     public FeignErrorDecoder(Environment env) {
         this.env = env;
-    }*/
+    }
 
     @Override
     public Exception decode(String methodKey, Response response) {
@@ -25,9 +25,8 @@ public class FeignErrorDecoder implements ErrorDecoder {
             case 404:
                 if (methodKey.contains("getOrders")) {
                     return new ResponseStatusException(HttpStatus.valueOf(response.status()),
-                            "User's orders is empty.");
-                            // env.getProperty("order_service.exception.orders_is_empty"));
-
+                            // "User's orders is empty.");
+                            env.getProperty("order_service.exception.orders_is_empty"));
                 }
                 break;
             default:

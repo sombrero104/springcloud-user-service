@@ -36,9 +36,9 @@ public class App {
         return Logger.Level.FULL;
     }
 
-    @Bean
+    /*@Bean
     public FeignErrorDecoder getFeignErrorDecoder() {
         return new FeignErrorDecoder();
-    }
+    }*/
 
 }
