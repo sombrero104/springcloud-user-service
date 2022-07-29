@@ -326,6 +326,6 @@ public class FeignErrorDecoder implements ErrorDecoder {
 List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 ~~~
 #### [요청 결과]
-<img src="./images/error_decoder_result.png" width="75%" /><br/>
+<img src="./images/error_decoder_result.png" width="74%" /><br/>
 
 <br/><br/><br/><br/>
