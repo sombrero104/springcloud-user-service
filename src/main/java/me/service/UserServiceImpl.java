@@ -42,21 +42,21 @@ public class UserServiceImpl implements UserService {
 
     OrderServiceClient orderServiceClient;
 
-    // CircuitBreakerFactory circuitBreakerFactory;
+    CircuitBreakerFactory circuitBreakerFactory;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository,
                            BCryptPasswordEncoder passwordEncoder,
                            Environment env,
                            RestTemplate restTemplate,
-                           OrderServiceClient orderServiceClient) {
-        // CircuitBreakerFactory circuitBreakerFactory) {
+                           OrderServiceClient orderServiceClient,
+                           CircuitBreakerFactory circuitBreakerFactory) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.env = env;
         this.restTemplate = restTemplate;
         this.orderServiceClient = orderServiceClient;
-        /*this.circuitBreakerFactory = circuitBreakerFactory;*/
+        this.circuitBreakerFactory = circuitBreakerFactory;
     }
 
     @Override
@@ -114,13 +114,14 @@ public class UserServiceImpl implements UserService {
         }*/
 
         /** ErrorDecoder 로 예외 처리하는 방법 **/
-        List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
+        // List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 
-        /* log.info("Before call orders microservice");
+        /** CircuitBreaker 사용하는 방법 **/
+        log.info("Before call orders microservice");
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
         List<ResponseOrder> ordersList = circuitBreaker.run(() -> orderServiceClient.getOrders(userId),
-                throwable -> new ArrayList<>());
-        log.info("After called orders microservice"); */
+                throwable -> new ArrayList<>()); // getOrders() 요청 시 문제가 생겼을 경우에 new ArrayList<>() 반환.
+        log.info("After called orders microservice");
 
         userDto.setOrders(ordersList);
         return userDto;

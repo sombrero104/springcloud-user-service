@@ -333,6 +333,7 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 ## Circuit Breaker
 - https://martinfowler.com/bliki/CircuitBreaker.html
 - 장애가 발생하는 서비스에 반복적인 호출이 되지 못하게 차단.
+    - 문제가 있는 마이크로서비스로의 트래픽을 차단하여 전체 서비스가 느려지거나 중단되는 것을 미리 방지. 
 - 특정 서비스가 정상적으로 동작하지 않을 경우 다른 기능으로 대체 수행. (장애 회피)
     - 특정 서비스가 정상적으로 동작하지 않더라도 해당 서비스만큼은 정상적으로 동작할 수 있도록 함. 
 - Circuit Breaker 의 Open/Closed
@@ -343,6 +344,9 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
         - 서비스를 정상적으로 이용할 수 있는 경우.  
 
 ## Resilience4J 
+Circuit Breaker 기능을 하는 모듈 라이브러리를 제공한다. <br/>
+(이 외에도 Bulkhead, RateLimiter, Retry, TimeLimiter, Cache 등의 모듈 라이브러리들이 있다.) <br/>
+
 #### [pom.xml] 
 ~~~
 <dependency>
@@ -350,5 +354,22 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
     <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 </dependency>
 ~~~
+#### [UserServiceImpl.java] 
+~~~
+@Service
+@Slf4j
+public class UserServiceImpl implements UserService {
+    CircuitBreakerFactory circuitBreakerFactory;
+    @Override
+    public UserDto getUserByUserId(String userId) {
+        ...
+        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
+                List<ResponseOrder> ordersList = circuitBreaker.run(() -> orderServiceClient.getOrders(userId),
+                        throwable -> new ArrayList<>()); // getOrders() 요청 시 문제가 생겼을 경우에 new ArrayList<>() 반환.
+        ...
+    }
+}
+~~~
+
 
 <br/><br/><br/><br/>
