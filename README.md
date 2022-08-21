@@ -37,9 +37,7 @@ public class App {
 ## Eureka Client를 다른 실행 방법으로 여러 개 실행해 보기 
 
 ### App 1
-me.App에서 바로 실행. <br/>
-
-<img src="./images/app1.png" width="47%" /><br/>
+main() 에서 바로 실행. <br/>
 ### App 2
 App 1의 실행 설정을 복사하여 포트만 바꿔서 실행. <br/>
 
@@ -98,7 +96,7 @@ eureka:
 ~~~
 <br/>
 
-<img src="./images/random_port_2.png" width="70%" /><br/>
+<img src="./images/random_port_2.png" width="68%" /><br/>
 <br/><br/><br/><br/>
 
 # 샘플 프로젝트 구성 
