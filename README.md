@@ -30,7 +30,6 @@ public class App {
 
 }
 ~~~
-<br/>
 
 ## Eureka Client를 다른 실행 방법으로 여러 개 실행해 보기 
 
