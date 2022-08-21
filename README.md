@@ -363,9 +363,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUserByUserId(String userId) {
         ...
+        /** CircuitBreaker 사용하는 방법 **/
+        log.info("Before call orders microservice");
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
-                List<ResponseOrder> ordersList = circuitBreaker.run(() -> orderServiceClient.getOrders(userId),
-                        throwable -> new ArrayList<>()); // getOrders() 요청 시 문제가 생겼을 경우에 new ArrayList<>() 반환.
+        List<ResponseOrder> ordersList = circuitBreaker.run(() -> orderServiceClient.getOrders(userId),
+                throwable -> new ArrayList<>()); // getOrders() 요청 시 문제가 생겼을 경우에 new ArrayList<>() 반환.
+        log.info("After called orders microservice");
         ...
     }
 }
@@ -402,5 +405,16 @@ public class Resilience4JConfig {
     }
 }
 ~~~
+#### [테스트 결과]
+order-service 를 중지한 후 user-service 에서 사용자의 주문 정보를 조회하면 <br/>
+아래와 같이 에러로 반환되지 않고 주문 정보가 비어있는 값으로 반환되게 된다. <br/>
+
+<img src="./images/circuit_breaker_01.png" width="54%" /><br/>
+
+요청 결과는 정상적으로 나오고 user-service 로그에서는 에러 로그가 발생한 것을 확인할 수 있다. <br/>
+
+<img src="./images/circuit_breaker_02.png" width="74%" /><br/>
+
+
 
 <br/><br/><br/><br/>
