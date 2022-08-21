@@ -204,7 +204,6 @@ public RestTemplate getRestTemplate() {
     return new RestTemplate();
 }
 ~~~
-<br/>
 
 ## FeignClient 를 사용하는 방식 
 - REST Call을 추상화 한 Spring Cloud Netflix 라이브러리 
