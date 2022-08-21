@@ -165,7 +165,6 @@ spring:
 # Microservice 간 통신 방식 
 - Synchronous HTTP communication 
 - Asynchronous communication over AMQP
-<br/>
 
 ## RestTemplate 을 사용하는 방식 
 #### [App.java]
