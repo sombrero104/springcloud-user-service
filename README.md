@@ -330,7 +330,7 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 <br/><br/><br/><br/>
 
 # 장애 처리 
-## Circuit Breaker
+## Circuit Breaker 패턴 
 - https://martinfowler.com/bliki/CircuitBreaker.html
 - 장애가 발생하는 서비스에 반복적인 호출이 되지 못하게 차단하는 패턴.
     - 문제가 있는 마이크로서비스로의 트래픽을 차단하여 전체 서비스가 느려지거나 중단되는 것을 미리 방지. 
