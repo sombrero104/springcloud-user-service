@@ -39,17 +39,15 @@ public class App {
 ### App 1
 me.App에서 바로 실행. <br/>
 
-<img src="./images/app1.png" width="50%" /><br/>
-
+<img src="./images/app1.png" width="51%" /><br/>
 ### App 2
 App 1의 실행 설정을 복사하여 포트만 바꿔서 실행. <br/>
 
-<img src="./images/app2.png" width="50%" /><br/>
-
+<img src="./images/app2.png" width="51%" /><br/>
 ### App 3 
 인텔리제이에서 아래와 같이 mvn 명령으로 실행. <br/>
 
-<img src="./images/app3.png" width="50%" /><br/>
+<img src="./images/app3.png" width="51%" /><br/>
 ~~~
 mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=9003'
 ~~~
@@ -59,7 +57,7 @@ mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=9003'
 
 <img src="./images/app4.png" width="50%" /><br/>
 <img src="./images/app4_2.png" width="50%" /><br/>
-<img src="./images/app4_3.png" width="50%" /><br/>
+<img src="./images/app4_3.png" width="54%" /><br/>
 ~~~
 java -jar -Dserver.port=9004 ./target/springcloud-user-service-1.0-SNAPSHOT.jar
 ~~~ 
