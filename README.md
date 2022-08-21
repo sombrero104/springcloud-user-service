@@ -421,6 +421,7 @@ order-service 를 중지한 후 user-service 에서 사용자의 주문 정보�
 - https://zipkin.io
 - Twitter 에서 사용하는 분산 환경의 Timing 데이터 수집, 추적 시스템을 오픈 소스로 만듦. 
 - Google 의 Dapper 서비스에서 시작이 되었으며, 분산 환경에서의 시스템 병목 현상 파악.
+    - (어떤 서비스가 어떤 서비스를 요청했고, 얼마나 걸렸는지..) 
 - Zipkin 은 Collector, Query Service, Database, WebUI 로 구성되어 있다. 
 - 서비스를 호출하거나 서비스에서 다른 서비스를 호출할 때의 모든 정보를 Zipkin 에 전달한다. 
 - Span
@@ -433,6 +434,13 @@ order-service 를 중지한 후 user-service 에서 사용자의 주문 정보�
     
         > 예를 들어, 사용자가 주문을 할 경우 주문 요청에 대한 Trace ID 가 하나 주어지고, <br/>
         > user-service -> order-service -> catalog-service 와 같이 각각의 요청들에는 Span ID 가 주어진다. 
+
+## Spring Cloud Sleuth 
+- 스프링 부트 애플리케이션을 Zipkin 과 연동시켜 주는 역할을 함. 
+- 요청 값에 따른 Trace ID, Span ID 부여.
+- Trace ID, Span ID 를 로그에 추가 가능.
+    - Servlet Filter, Rest Template, Scheduled Actions, Message Channels, Feign Client <br/>
+    와 연동해서 Zipkin 으로 로그 데이터를 전달하는 역할을 함. 
 
 
 <br/><br/><br/><br/>
