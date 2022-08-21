@@ -246,7 +246,6 @@ try {
     log.error(ex.getMessage());
 }
 ~~~
-<br/>
 
 ### FeignClient 에서 로그 사용
 아래와 같이 설정만 해줘도 FeignClient 인터페이스 사용 시 로그가 남는다. <br/>
