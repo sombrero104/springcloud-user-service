@@ -442,5 +442,15 @@ order-service 를 중지한 후 user-service 에서 사용자의 주문 정보�
     - Servlet Filter, Rest Template, Scheduled Actions, Message Channels, Feign Client <br/>
     와 연동해서 Zipkin 으로 로그 데이터를 전달하는 역할을 함. 
 
+### Zipkin 설치 
+zipkin.jar 파일을 다운로드 후 실행. 
+~~~
+curl -sSL https://zipkin.io/quickstart.sh | bash -s
+java -jar zipkin.jar
+~~~
+정상적으로 실행이 되면 아래와 같이 웹 UI 의 주소가 나온다. 
+
+<img src="./images/zipkin_start.png" width="46%" /><br/>
+
 
 <br/><br/><br/><br/>
