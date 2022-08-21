@@ -39,7 +39,7 @@ public class App {
 ### App 1
 me.App에서 바로 실행. <br/>
 
-<img src="./images/app1.png" width="51%" /><br/>
+<img src="./images/app1.png" width="52%" /><br/>
 ### App 2
 App 1의 실행 설정을 복사하여 포트만 바꿔서 실행. <br/>
 
@@ -57,7 +57,7 @@ mvn spring-boot:run -Dspring-boot.run.jvmArguments='-Dserver.port=9003'
 
 <img src="./images/app4.png" width="50%" /><br/>
 <img src="./images/app4_2.png" width="50%" /><br/>
-<img src="./images/app4_3.png" width="54%" /><br/>
+<img src="./images/app4_3.png" width="55%" /><br/>
 ~~~
 java -jar -Dserver.port=9004 ./target/springcloud-user-service-1.0-SNAPSHOT.jar
 ~~~ 
@@ -83,7 +83,7 @@ server:
 
 그런데 App을 여러 개 띄워도 Eureka Server에서 확인해 보면 1개의 서비스만 나오게 된다. <br/>
 
-<img src="./images/random_port_1.png" width="70%" /><br/>
+<img src="./images/random_port_1.png" width="65%" /><br/>
 
 application.yml에서 설정한 포트 번호(0)와 애플리케이션 이름이 같기 때문인데 <br/>
 아래와 같이 instance-id를 설정해 주면 해결된다. <br/>
