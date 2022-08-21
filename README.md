@@ -39,7 +39,7 @@ public class App {
 ### App 1
 me.App에서 바로 실행. <br/>
 
-<img src="./images/app1.png" width="48%" /><br/>
+<img src="./images/app1.png" width="47%" /><br/>
 ### App 2
 App 1의 실행 설정을 복사하여 포트만 바꿔서 실행. <br/>
 
@@ -83,7 +83,7 @@ server:
 
 그런데 App을 여러 개 띄워도 Eureka Server에서 확인해 보면 1개의 서비스만 나오게 된다. <br/>
 
-<img src="./images/random_port_1.png" width="67%" /><br/>
+<img src="./images/random_port_1.png" width="68%" /><br/>
 
 application.yml에서 설정한 포트 번호(0)와 애플리케이션 이름이 같기 때문인데 <br/>
 아래와 같이 instance-id를 설정해 주면 해결된다. <br/>
