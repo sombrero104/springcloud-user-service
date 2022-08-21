@@ -332,7 +332,7 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 # 장애 처리 
 ## Circuit Breaker
 - https://martinfowler.com/bliki/CircuitBreaker.html
-- 장애가 발생하는 서비스에 반복적인 호출이 되지 못하게 차단.
+- 장애가 발생하는 서비스에 반복적인 호출이 되지 못하게 차단하는 패턴.
     - 문제가 있는 마이크로서비스로의 트래픽을 차단하여 전체 서비스가 느려지거나 중단되는 것을 미리 방지. 
 - 특정 서비스가 정상적으로 동작하지 않을 경우 다른 기능으로 대체 수행. (장애 회피)
     - 특정 서비스가 정상적으로 동작하지 않더라도 해당 서비스만큼은 정상적으로 동작할 수 있도록 함. 
