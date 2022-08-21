@@ -327,5 +327,12 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 ~~~
 #### [요청 결과]
 <img src="./images/error_decoder_result.png" width="74%" /><br/>
+<br/><br/>
+
+## Circuit Breaker
+- https://martinfowler.com/bliki/CircuitBreaker.html
+- 장애가 발생하는 서비스에 반복적인 호출이 되지 못하게 차단.
+- 특정 서비스가 정상적으로 동작하지 않을 경우 다른 기능으로 대체 수행. (장애 회피)
+
 
 <br/><br/><br/><br/>
