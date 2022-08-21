@@ -329,7 +329,7 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 <img src="./images/error_decoder_result.png" width="74%" /><br/>
 <br/><br/><br/><br/>
 
-# 장애 처리 
+# Microservice 장애 처리 
 ## Circuit Breaker 패턴 
 - https://martinfowler.com/bliki/CircuitBreaker.html
 - 장애가 발생하는 서비스에 반복적인 호출이 되지 못하게 차단하는 패턴.
@@ -414,7 +414,24 @@ order-service 를 중지한 후 user-service 에서 사용자의 주문 정보�
 요청 결과는 정상적으로 나오고 user-service 로그에서는 에러 로그가 발생한 것을 확인할 수 있다. <br/>
 
 <img src="./images/circuit_breaker_02.png" width="74%" /><br/>
+<br/><br/><br/><br/>
 
+# Microservice 분산 추적 
+## Zipkin
+- https://zipkin.io
+- Twitter 에서 사용하는 분산 환경의 Timing 데이터 수집, 추적 시스템을 오픈 소스로 만듦. 
+- Google 의 Dapper 서비스에서 시작이 되었으며, 분산 환경에서의 시스템 병목 현상 파악.
+- Zipkin 은 Collector, Query Service, Database, WebUI 로 구성되어 있다. 
+- 서비스를 호출하거나 서비스에서 다른 서비스를 호출할 때의 모든 정보를 Zipkin 에 전달한다. 
+- Span
+    - 하나의 요청에 사용되는 작업의 단위.
+    - Span 에는 64 bit unique ID 가 부여된다. 
+- Trace
+    - 트리 구조로 이루어진 Span Set.
+    - 하나의 요청에 대해 같은 Trace ID 가지고, <br/>
+    여러개로 나눠진 Span ID 를 이용해서 사용자가 요청했던 값이 어느 곳에서 진행되고 있는지 확인할 수 있다.
+        - 예를 들어, 사용자가 주문을 할 경우 주문에 대한 Trace ID 가 하나 주어지고, <br/>
+        user-service -> order-service -> catalog-service 와 같이 각각의 요청들에는 Span ID 가 주어진다. 
 
 
 <br/><br/><br/><br/>
