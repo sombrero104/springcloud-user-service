@@ -335,9 +335,10 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 - 장애가 발생하는 서비스에 반복적인 호출이 되지 못하게 차단.
 - 특정 서비스가 정상적으로 동작하지 않을 경우 다른 기능으로 대체 수행. (장애 회피)
 - Circuit Breaker 의 Open/Closed
-    - Open(Circuit Breaker 가 열려있는 경우)
+    - Open (Circuit Breaker 가 열려있는 경우)
         - 특정 수치 만큼 반복적으로 정상적인 서비스가 되지 않을 경우 Circuit Breaker 가 열림. 
-    - Closed(Circuit Breaker 가 닫혀있는 경우)
+        - 요청을 더이상 전달하지 않고 Circuit Breaker 자체적으로 우회할 수 있는 값을 리턴. 
+    - Closed (Circuit Breaker 가 닫혀있는 경우)
         - 서비스를 정상적으로 이용할 수 있는 경우.  
 
 
