@@ -329,6 +329,7 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 <img src="./images/error_decoder_result.png" width="74%" /><br/>
 <br/><br/>
 
+# 장애 처리 
 ## Circuit Breaker
 - https://martinfowler.com/bliki/CircuitBreaker.html
 - 장애가 발생하는 서비스에 반복적인 호출이 되지 못하게 차단.
