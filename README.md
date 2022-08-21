@@ -450,7 +450,7 @@ java -jar zipkin.jar
 ~~~
 정상적으로 실행이 되면 아래와 같이 웹 UI 의 주소가 나온다. 
 
-<img src="./images/zipkin_start.png" width="46%" /><br/>
+<img src="./images/zipkin_start.png" width="42%" /><br/>
 
 
 <br/><br/><br/><br/>
