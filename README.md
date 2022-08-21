@@ -345,7 +345,7 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
 
 ## Resilience4J 
 Circuit Breaker 기능을 하는 모듈 라이브러리를 제공한다. <br/>
-(이 외에도 Bulkhead, RateLimiter, Retry, TimeLimiter, Cache 등의 모듈 라이브러리들이 있다.) <br/>
+(이 외에도 Resilience4J 에는 Bulkhead, RateLimiter, Retry, TimeLimiter, Cache 등의 모듈 라이브러리들이 있다.) <br/>
 
 #### [pom.xml] 
 ~~~
