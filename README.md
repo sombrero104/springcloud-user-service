@@ -448,7 +448,7 @@ zipkin.jar 파일을 다운로드 후 실행.
 curl -sSL https://zipkin.io/quickstart.sh | bash -s
 java -jar zipkin.jar
 ~~~
-정상적으로 실행이 되면 아래와 같이 웹 UI 의 주소가 나온다. 
+정상적으로 실행이 되면 아래와 같이 Zipkin 대시보드 역할을 하는 웹 UI 의 주소가 나온다. <br/>
 
 <img src="./images/zipkin_start.png" width="42%" /><br/>
 
