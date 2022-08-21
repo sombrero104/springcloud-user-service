@@ -343,7 +343,7 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
     - Closed (Circuit Breaker 가 닫혀있는 경우)
         - 서비스를 정상적으로 이용할 수 있는 경우.  
 
-## Resilience4J 
+## Resilience4J 적용 
 Circuit Breaker 기능을 하는 모듈 라이브러리를 제공한다. <br/>
 (이 외에도 Resilience4J 에는 Bulkhead, RateLimiter, Retry, TimeLimiter, Cache 등의 모듈 라이브러리들이 있다.) <br/>
 
