@@ -41,7 +41,7 @@ main() 에서 바로 실행. <br/>
 ### App 2
 App 1의 실행 설정을 복사하여 포트만 바꿔서 실행. <br/>
 
-<img src="./images/app2.png" width="51%" />
+<img src="./images/app2.png" width="51%" /><br/>
 ### App 3 
 인텔리제이에서 아래와 같이 mvn 명령으로 실행. <br/>
 
