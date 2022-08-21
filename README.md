@@ -191,7 +191,6 @@ order_service:
 ~~~
 #### [user-service - /users/{userId} 요청 결과] 
 <img src="./images/get_users_orders.png" width="60%" /><br/>
-<br/>
 
 #### 유레카에 등록된 마이크로서비스 이름으로 변경. 
 ~~~
