@@ -342,7 +342,7 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
     - Closed (Circuit Breaker 가 닫혀있는 경우)
         - 서비스를 정상적으로 이용할 수 있는 경우.  
 
-### Resilience4J 
+## Resilience4J 
 #### [pom.xml] 
 ~~~
 <dependency>
