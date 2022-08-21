@@ -342,5 +342,13 @@ List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
     - Closed (Circuit Breaker 가 닫혀있는 경우)
         - 서비스를 정상적으로 이용할 수 있는 경우.  
 
+### Resilience4J 
+#### [pom.xml] 
+~~~
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+</dependency>
+~~~
 
 <br/><br/><br/><br/>

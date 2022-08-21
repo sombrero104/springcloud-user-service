@@ -89,6 +89,12 @@
             <version>1.3.167</version>
             <scope>runtime</scope>
         </dependency>
+
+        <!-- resilience4j -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
