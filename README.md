@@ -439,6 +439,7 @@ java -jar zipkin.jar
 
 <img src="./images/zipkin_start.png" width="42%" /><br/>
 
+### Spring Cloud Sleuth + Zipkin 적용 
 #### [pom.xml]
 ~~~
 <dependency>
