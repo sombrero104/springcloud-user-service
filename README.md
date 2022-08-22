@@ -441,7 +441,7 @@ java -jar zipkin.jar
 <img src="./images/zipkin_start.png" width="42%" /><br/>
 
 ## Spring Cloud Sleuth + Zipkin 적용 
-#### [pom.xml]
+#### [user-service, order-service - pom.xml]
 ~~~
 <dependency>
     <groupId>org.springframework.cloud</groupId>
@@ -453,15 +453,17 @@ java -jar zipkin.jar
     <version>2.2.3.RELEASE</version>
 </dependency>
 ~~~
-#### [application.yml]
+#### [user-service, order-service - application.yml]
 ~~~
 spring:
   zipkin:
     base-url: http://localhost:9411
-    enabled: true
+    enabled: true   // zipkin 서버 작동 true. 
   sleuth:
     sampler:
       probability: 1.0
+        // 발생되는 로그를 어느 정도의 빈도로 zipkin 서버에 전달할 것인지를 설정. 
+        // 1.0 => 100% (모든 로그를 전달.) 
 ~~~
 
 <br/><br/><br/><br/>
