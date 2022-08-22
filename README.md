@@ -435,7 +435,8 @@ zipkin.jar 파일을 다운로드 후 실행.
 curl -sSL https://zipkin.io/quickstart.sh | bash -s
 java -jar zipkin.jar
 ~~~
-정상적으로 실행이 되면 아래와 같이 Zipkin 대시보드 역할을 하는 웹 UI 의 주소가 나온다. <br/>
+정상적으로 실행이 되면 아래와 같이 Zipkin 의 포트번호가 나온다. <br/>
+(대시보드 역할을 하는 웹 UI 의 주소이기도 하다.) <br/>
 
 <img src="./images/zipkin_start.png" width="42%" /><br/>
 
@@ -451,6 +452,16 @@ java -jar zipkin.jar
     <artifactId>spring-cloud-starter-zipkin</artifactId>
     <version>2.2.3.RELEASE</version>
 </dependency>
+~~~
+#### [application.yml]
+~~~
+spring:
+  zipkin:
+    base-url: http://localhost:9411
+    enabled: true
+  sleuth:
+    sampler:
+      probability: 1.0
 ~~~
 
 <br/><br/><br/><br/>
