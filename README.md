@@ -410,7 +410,7 @@ order-service 를 중지한 후 user-service 에서 사용자의 주문 정보�
     - (어떤 서비스가 어떤 서비스를 요청했고, 얼마나 걸렸는지..) 
 - Zipkin 은 Collector, Storage, Query Service, Web UI 로 구성되어 있다. <br/>
 
-    <img src="./images/zipkin_diagram.png" width="40%" /><br/>
+        <img src="./images/zipkin_diagram.png" width="45%" /><br/>
 - 서비스를 호출하거나 서비스에서 다른 서비스를 호출할 때의 모든 정보를 Zipkin 에 전달한다. 
 - Span
     - 하나의 요청에 사용되는 작업의 단위.
