@@ -433,6 +433,8 @@ order-service 를 중지한 후 user-service 에서 사용자의 주문 정보�
 zipkin.jar 파일을 다운로드 후 실행. 
 ~~~
 curl -sSL https://zipkin.io/quickstart.sh | bash -s
+~~~
+~~~
 java -jar zipkin.jar
 ~~~
 정상적으로 실행이 되면 아래와 같이 Zipkin 의 포트번호가 나온다. <br/>
