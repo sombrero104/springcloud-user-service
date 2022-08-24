@@ -474,7 +474,7 @@ spring:
 order-service 로 상품 주문을 하면 Trace ID, Span ID 가 포함된 로그를 확인할 수 있다. <br/>
 (첫번째 요청은 Trace ID, Span ID 가 같다.) <br/>
 
-<img src="./images/zipkin_test_order_log.png" width="72%" /><br/>
+<img src="./images/zipkin_test_order_log.png" width="77%" /><br/>
 
 그리고 Zipkin 웹 UI 에서 Trace ID 로 검색을 하면 요청과 관련된 정보를 확인할 수 있다. <br/>
 
