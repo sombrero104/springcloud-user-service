@@ -397,7 +397,7 @@ order-service 를 중지한 후 user-service 에서 사용자의 주문 정보�
 
 <img src="./images/circuit_breaker_01.png" width="54%" /><br/>
 
-요청 결과는 정상적으로 나오고 user-service 로그에서는 에러 로그가 발생한 것을 확인할 수 있다. <br/>
+요청 결과는 정상적으로 나오고 user-service 로그에서는 에러 로그가 출력된 것을 확인할 수 있다. <br/>
 
 <img src="./images/circuit_breaker_02.png" width="74%" /><br/>
 <br/><br/><br/><br/>
