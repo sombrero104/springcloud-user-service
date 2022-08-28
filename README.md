@@ -486,10 +486,10 @@ order-service 로 상품 주문을 하면 Trace ID, Span ID 가 포함된 로그
 
 <img src="./images/zipkin_call_get_users.png" width="54%" /><br/>
 
-<img src="./images/zipkin_get_users_user_service_log.png" width="62%" /><br/>
+<img src="./images/zipkin_get_users_user_service_log.png" width="63%" /><br/>
 
 <img src="./images/zipkin_get_users_order_service_log.png" width="63%" /><br/>
 
-<img src="./images/zipkin_trace_get_users.png" width="66%" /><br/>
+<img src="./images/zipkin_trace_get_users.png" width="67%" /><br/>
 
 <br/><br/><br/><br/>
