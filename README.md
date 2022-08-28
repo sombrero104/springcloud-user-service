@@ -480,4 +480,16 @@ order-service 로 상품 주문을 하면 Trace ID, Span ID 가 포함된 로그
 
 <img src="./images/zipkin_test_order_dashboard.png" width="62%" /><br/>
 
+상품을 주문한 후 사용자 정보를 조회하면 <br/>
+사용자의 주문 내역도 같이 조회가 되기 때문에 (user-service -> order-service) <br/>
+아래와 같이 user-service 와 order-service 에서 같은 Trace ID를 가진 로그를 확인할 수 있다. <br/>
+
+<img src="./images/zipkin_call_get_users.png" width="47%" /><br/>
+
+<img src="./images/zipkin_get_users_user_service.png" width="47%" /><br/>
+
+<img src="./images/zipkin_get_users_order_service.png" width="47%" /><br/>
+
+<img src="./images/zipkin_trace_get_users.png" width="47%" /><br/>
+
 <br/><br/><br/><br/>
