@@ -1,6 +1,8 @@
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/controller/UserController.java
+/Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/config/Resilience4JConfig.java
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/vo/RequestUser.java
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/vo/ResponseOrder.java
+/Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/error/FeignErrorDecoder.java
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/vo/RequestLogin.java
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/security/WebSecurity.java
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/App.java
@@ -11,4 +13,5 @@
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/vo/Greeting.java
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/service/UserServiceImpl.java
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/security/AuthenticationFilter.java
+/Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/client/OrderServiceClient.java
 /Users/sombrero104/IdeaProjects/springcloud-user-service/src/main/java/me/vo/ResponseUser.java

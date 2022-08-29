@@ -4,11 +4,14 @@ me/service/UserService.class
 me/service/UserServiceImpl.class
 me/vo/Greeting.class
 me/App.class
+me/config/Resilience4JConfig.class
 me/security/AuthenticationFilter.class
 me/jpa/UserEntity.class
 me/dto/UserDto.class
 me/jpa/UserRepository.class
 me/vo/RequestLogin.class
+me/error/FeignErrorDecoder.class
 me/vo/ResponseUser.class
 me/controller/UserController.class
 me/security/WebSecurity.class
+me/client/OrderServiceClient.class

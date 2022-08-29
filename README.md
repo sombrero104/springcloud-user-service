@@ -524,6 +524,34 @@ order-service 로 상품 주문을 하면 Trace ID, Span ID 가 포함된 로그
 - Spring에서는 애노테이션 @Timed 제공 
 	- 특정 클래스 또는 메소드의 호출 시간, 호출 빈도 등을 측정할 수 있다. 
 
+#### [pom.xml]
+~~~
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
+</dependency>
+~~~
+#### [application.yml]
+~~~
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, httptrace, busrefresh, info, metrics, prometheus
+~~~
+#### [UserController.java]
+~~~
+@GetMapping("/health_check")
+@Timed(value = "users.status", longTask = true)
+public String status() {
+    ... 
+}
 
+@GetMapping("/welcome")
+@Timed(value = "users.welcome", longTask = true)
+public String welcome() {
+    ...
+}
+~~~
 
 <br/><br/><br/><br/>
