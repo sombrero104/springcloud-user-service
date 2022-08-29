@@ -492,4 +492,14 @@ order-service 로 상품 주문을 하면 Trace ID, Span ID 가 포함된 로그
 
 <img src="./images/zipkin_trace_get_users.png" width="67%" /><br/>
 
+만약, 주문 내역을 조회할 때 오류가 발생할 경우에는 아래와 같이 대시보드에서 오류를 확인할 수 있다. <br/>
+
+<img src="./images/get_orders_throw_exception.png" width="67%" /><br/>
+
+<img src="./images/get_orders_throw_exception_log.png" width="67%" /><br/>
+
+<img src="./images/get_orders_throw_exception_zipkin.png" width="67%" /><br/>
+
+
+
 <br/><br/><br/><br/>
