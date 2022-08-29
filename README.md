@@ -502,15 +502,15 @@ order-service 로 상품 주문을 하면 Trace ID, Span ID 가 포함된 로그
 <br/><br/><br/><br/>
 
 # Microservice 모니터링 
-#### Turbine Server
+#### * Turbine Server
 - Microservice에 설치된 Hystrix 클라이언트의 스트림을 통합.
 	- Microservice에서 생성되는 Hystrix 클라이언트 스트림 메시지를 Turbine Server로 수집. 
 > Microservice에서 발생되는 로그들을 Hystrix 클라이언트 스트림을 통해서 전송을 하게 되고 <br/>
 전송된 데이터들을 모아서 저장하고 있다가 Hystrix 대시보드 또는 다른 모니터링 도구들에게 전달해 주는 역할을 한다. 
 
-#### Hystrix Dashboard / Turbine 대체 
+#### * Hystrix Dashboard / Turbine 대체 
 현재는 Spring Cloud 에서 'Hystrix Dashboard / Turbine' 을 대체하여 <br/>
-'Micrometer + Monitoring System' 을 사용하는 것을 권장하고 있다. <br/>
+'Micrometer + Monitoring System' 을 사용하는 것을 권장하고 있다. <br/><br/>
 
 # Micrometer
 - https://micrometer.io
