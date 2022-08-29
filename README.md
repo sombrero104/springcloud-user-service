@@ -499,6 +499,29 @@ order-service 로 상품 주문을 하면 Trace ID, Span ID 가 포함된 로그
 <img src="./images/get_orders_throw_exception_log.png" width="67%" /><br/>
 
 <img src="./images/get_orders_throw_exception_zipkin.png" width="67%" /><br/>
+<br/><br/><br/><br/>
+
+# Microservice 모니터링 
+#### Turbine Server
+- Microservice에 설치된 Hystrix 클라이언트의 스트림을 통합.
+	- Microservice에서 생성되는 Hystrix 클라이언트 스트림 메시지를 Turbine Server로 수집. 
+> Microservice에서 발생되는 로그들을 Hystrix 클라이언트 스트림을 통해서 전송을 하게 되고 
+전송된 데이터들을 모아서 저장하고 있다가 Hystrix 대시보드 또는 다른 모니터링 도구들에게 전달해 주는 역할을 한다. 
+
+#### Hystrix Dashboard / Turbine 대체 
+	=> Micrometer + Monitoring System
+
+## Micrometer
+- https://micrometer.io
+- JVM 기반의 애플리케이션의 Metric 제공
+- Spring Framework 5, Spring Boot 2 부터 Spring의 Metrics 처리
+- Prometheus 등의 다양한 모니터링 시스템 지원
+
+### Timer
+- 짧은 지연 시간, 이벤트의 사용 빈도를 측정
+- 시계열로 이벤트의 시간, 호출 빈도 등을 제공
+- Spring에서는 애노테이션 @Timed 제공 
+	- 특정 클래스 또는 메소드의 호출 시간, 호출 빈도 등을 측정할 수 있다. 
 
 
 
