@@ -523,15 +523,18 @@ order-service 로 상품 주문을 하면 Trace ID, Span ID 가 포함된 로그
 - 시계열로 이벤트의 시간, 호출 빈도 등을 제공
 - Spring에서는 애노테이션 @Timed 제공 
 	- 특정 클래스 또는 메소드의 호출 시간, 호출 빈도 등을 측정할 수 있다. 
+	
+	
+우선은 모니터링에 사용할 지표를 수집하기 위해 아래와 같이 추가한다. 
 
-#### [pom.xml]
+#### [user-service, gateway-service, order-service - pom.xml]
 ~~~
 <dependency>
     <groupId>io.micrometer</groupId>
     <artifactId>micrometer-registry-prometheus</artifactId>
 </dependency>
 ~~~
-#### [application.yml]
+#### [user-service, gateway-service, order-service - application.yml]
 ~~~
 management:
   endpoints:
@@ -539,7 +542,7 @@ management:
       exposure:
         include: refresh, health, beans, httptrace, busrefresh, info, metrics, prometheus
 ~~~
-#### [UserController.java]
+#### [user-service - UserController.java]
 ~~~
 @GetMapping("/health_check")
 @Timed(value = "users.status", longTask = true)
@@ -553,5 +556,18 @@ public String welcome() {
     ...
 }
 ~~~
+
+위에서 @Timed 를 추가한 '/welcome', '/health_check' 를 호출한 후, <br/>
+
+<img src="./images/call_user_service_welcome.png" width="67%" /><br/>
+
+<img src="./images/call_user_service_status.png" width="67%" /><br/>
+
+'actuator/metrics', 'actuator/prometheus' 를 호출해 보면 <br/>
+아래와 같이 모니터링을 위한 지표가 수집되는 것을 확인할 수 있다. <br/>
+
+<img src="./images/call_actuator_metrics.png" width="67%" /><br/>
+
+<img src="./images/call_actuator_prometheus.png" width="67%" /><br/>
 
 <br/><br/><br/><br/>
